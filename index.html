@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>내가 그린 그림 | Draw Any Animal</title>
+  <link rel="icon" type="image/png" href="./img/favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @font-face {
+      font-family: 'YoonChildfundkoreaManSeh';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/YoonChildfundkoreaManSeh.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Cafe24Meongi-W-v1.0';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Meongi-W-v1.0.woff2') format('woff2');
+    }
+    * {
+      font-family: 'YoonChildfundkoreaManSeh';
+      color: #388ce0;
+      box-sizing: border-box;
+    }
+    .font-meongi {
+      font-family: 'Cafe24Meongi-W-v1.0';
+    }
+  </style>
+</head>
+<body class="p-5 bg-white">
+  <header class="relative flex justify-between items-center border border-black p-5 mb-6 rounded-xl shadow-md h-[120px]">
+    <div>
+      <h1 class="text-4xl font-bold">내가 그리는 그림</h1>
+      <p class="font-meongi text-xl mt-1">Draw Any Animal</p>
+    </div>
+    <img src="./img/dance-dog.gif" alt="축축 가리" class="h-[130%] object-contain mr-5"/>
+  </header>
+
+  <main class="flex flex-col lg:flex-row justify-center gap-5">
+    <section id="draw" class="flex-[7] border border-black p-4 rounded-xl shadow-sm flex flex-col gap-4">    
+      <div class="flex flex-wrap items-center gap-4">
+
+       <!-- 배경음악 -->
+        <div class="flex items-center gap-2 flex-1 min-w-[280px]">
+            🎵 <span class="text-lg font-meongi whitespace-nowrap">배경음악</span>
+            <div id="musicPlayer" class="flex-1 min-w-[200px]"></div>
+        </div>
+
+        <!-- 상단 브러쉬 -->
+        <button id="eraserToggle" class="px-3 py-1 border border-gray-400 rounded hover:bg-gray-100 transition whitespace-nowrap">
+          🪼 지우가 켜기
+        </button>
+        <button id="clearCanvas" class="px-3 py-1 border border-red-300 text-red-500 rounded hover:bg-red-100 transition whitespace-nowrap">
+          🩹 전체 지우기
+        </button>
+      </div>
+
+      <canvas id="drawingCanvas" class="w-full h-[500px] border border-black rounded-lg cursor-none"></canvas>
+      <div id="customCursor" class="pointer-events-none fixed z-50 hidden"></div>
+
+      <div id="brush" class="mt-4 border border-blue-300 rounded-lg p-3 flex flex-wrap items-center gap-4">
+        <div class="flex items-center gap-2">
+          🎨 <span class="font-meongi">색상</span>
+          <button class="w-6 h-6 bg-black rounded-full" onclick="setColor('#000000')"></button>
+          <button class="w-6 h-6 bg-red-500 rounded-full" onclick="setColor('#ef4444')"></button>
+          <button class="w-6 h-6 bg-yellow-300 rounded-full" onclick="setColor('#fde047')"></button>
+          <button class="w-6 h-6 bg-green-400 rounded-full" onclick="setColor('#4ade80')"></button>
+          <button class="w-6 h-6 bg-blue-500 rounded" onclick="setColor('#3b82f6')"></button>
+          <button class="w-6 h-6 bg-purple-500 rounded" onclick="setColor('#a855f7')"></button>
+          <button class="w-6 h-6 bg-pink-400 rounded" onclick="setColor('#f472b6')"></button>
+          <button class="w-6 h-6 bg-gray-700 rounded" onclick="setColor('#374151')"></button>
+          <input type="color" id="brushColor" class="ml-2 border rounded" onchange="setColor(this.value)" />
+        </div>
+        <div class="flex items-center gap-2">
+          📏 <label for="brushSize" class="font-meongi">굵기</label>
+          <input type="range" min="1" max="20" value="5" id="brushSize" />
+        </div>
+        <div class="flex items-center gap-2">
+          <label for="brushOpacity" class="font-meongi">붉 투명도</label>
+          <input type="range" min="0" max="1" step="0.01" value="1" id="brushOpacity" />
+        </div>
+      </div>
+    </section>
+
+    <section id="photo" class="flex-[3] border border-black p-4 rounded-xl shadow-sm flex flex-col items-center">
+      <img src="./img/cat.png" alt="참고 동물" class="w-full object-cover rounded"/>
+      <button class="mt-4 px-4 py-2 bg-blue-400 text-white font-bold rounded hover:bg-blue-500 transition">
+        다른 동물 보기
+      </button>
+    </section>
+  </main>
+
+  <script src="./src/canvas.js"> </script>
+  <script src="./src/audio.js"> </script>
+</body>
+</html>
