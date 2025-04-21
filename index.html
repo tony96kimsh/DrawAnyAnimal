@@ -1,3 +1,4 @@
+<!-- tailwindcss language -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>내가 그린 그림 | Draw Any Animal</title>
   <link rel="icon" type="image/png" href="./img/favicon.png" />
+  <!-- <link href="./dist/output.css" rel="stylesheet" /> -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @font-face {
@@ -28,12 +30,11 @@
 <body class="p-5 bg-white">
   <header class="relative flex justify-between items-center border border-black p-5 mb-6 rounded-xl shadow-md h-[120px]">
     <div>
-      <h1 class="text-4xl font-bold">내가 그리는 그림</h1>
+      <h1 class="text-4xl font-bold">내가 그린 그림</h1>
       <p class="font-meongi text-xl mt-1">Draw Any Animal</p>
     </div>
-    <img src="./img/dance-dog.gif" alt="축축 가리" class="h-[130%] object-contain mr-5"/>
+    <img src="./img/dance-dog.gif" alt="춤추는 강아지" class="h-[130%] object-contain mr-5"/>
   </header>
-
   <main class="flex flex-col lg:flex-row justify-center gap-5">
     <section id="draw" class="flex-[7] border border-black p-4 rounded-xl shadow-sm flex flex-col gap-4">    
       <div class="flex flex-wrap items-center gap-4">
@@ -74,7 +75,7 @@
           <input type="range" min="1" max="20" value="5" id="brushSize" />
         </div>
         <div class="flex items-center gap-2">
-          <label for="brushOpacity" class="font-meongi">붉 투명도</label>
+          <label for="brushOpacity" class="font-meongi">붓 투명도</label>
           <input type="range" min="0" max="1" step="0.01" value="1" id="brushOpacity" />
         </div>
       </div>
@@ -83,7 +84,10 @@
     <section id="photo" class="flex-[3] border border-black p-4 rounded-xl shadow-sm flex flex-col items-center">
       <img src="./img/cat.png" alt="참고 동물" class="w-full object-cover rounded"/>
       <button class="mt-4 px-4 py-2 bg-blue-400 text-white font-bold rounded hover:bg-blue-500 transition">
-        다른 동물 보기
+        다른 고양이 사진 보기
+      </button>
+      <button class="mt-4 px-4 py-2 bg-blue-400 text-white font-bold rounded hover:bg-blue-500 transition">
+        다른 강아지 사진 보기
       </button>
     </section>
   </main>
