@@ -17,20 +17,36 @@
       font-family: 'Cafe24Meongi-W-v1.0';
       src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Meongi-W-v1.0.woff2') format('woff2');
     }
+    @font-face {
+      font-family: 'Ownglyph_corncorn-Rg';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    } 
     * {
-      font-family: 'YoonChildfundkoreaManSeh';
+      /* font-family: 'YoonChildfundkoreaManSeh'; */
+      font-family: 'Ownglyph_corncorn-Rg';
       color: #388ce0;
       box-sizing: border-box;
     }
     .font-meongi {
       font-family: 'Cafe24Meongi-W-v1.0';
     }
+    .font-Ownglyph {
+      font-family: 'Ownglyph_corncorn-Rg';
+    }    
+    .font-YoonChild {
+      font-family: 'YoonChildfundkoreaManSeh';
+    }
+    button {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body class="p-5 bg-white">
   <header class="relative flex justify-between items-center border border-black p-5 mb-6 rounded-xl shadow-md h-[120px]">
     <div>
-      <h1 class="text-4xl font-bold">내가 그린 그림</h1>
+      <h1 class="text-4xl font-bold font-YoonChild" >내가 그린 그림</h1>
       <p class="font-meongi text-xl mt-1">Draw Any Animal</p>
     </div>
     <img src="./img/dance-dog.gif" alt="춤추는 강아지" class="h-[130%] object-contain mr-5"/>
@@ -40,8 +56,8 @@
       <div class="flex flex-wrap items-center gap-4">
 
        <!-- 배경음악 -->
-        <div class="flex items-center gap-2 flex-1 min-w-[280px]">
-            🎵 <span class="text-lg font-meongi whitespace-nowrap">배경음악</span>
+        <div id="musicArea" class="flex items-center gap-2 flex-1 min-w-[280px]">
+            🎵 <span class="text-lg whitespace-nowrap font-Ownglyph">배경음악</span>
             <div id="musicPlayer" class="flex-1 min-w-[200px]"></div>
         </div>
 
@@ -59,7 +75,7 @@
 
       <div id="brush" class="mt-4 border border-blue-300 rounded-lg p-3 flex flex-wrap items-center gap-4">
         <div class="flex items-center gap-2">
-          🎨 <span class="font-meongi">색상</span>
+          🎨 <span class="">색상</span>
           <button class="w-6 h-6 bg-black rounded-full" onclick="setColor('#000000')"></button>
           <button class="w-6 h-6 bg-red-500 rounded-full" onclick="setColor('#ef4444')"></button>
           <button class="w-6 h-6 bg-yellow-300 rounded-full" onclick="setColor('#fde047')"></button>
@@ -71,28 +87,39 @@
           <input type="color" id="brushColor" class="ml-2 border rounded" onchange="setColor(this.value)" />
         </div>
         <div class="flex items-center gap-2">
-          📏 <label for="brushSize" class="font-meongi">굵기</label>
+          📏 <label for="brushSize" class="">굵기</label>
           <input type="range" min="1" max="20" value="5" id="brushSize" />
         </div>
         <div class="flex items-center gap-2">
-          <label for="brushOpacity" class="font-meongi">붓 투명도</label>
+          <label for="brushOpacity" class="">붓 투명도</label>
           <input type="range" min="0" max="1" step="0.01" value="1" id="brushOpacity" />
         </div>
       </div>
     </section>
 
+
+    <!-- 사진 영역 -->
     <section id="photo" class="flex-[3] border border-black p-4 rounded-xl shadow-sm flex flex-col items-center">
-      <img src="./img/cat.png" alt="참고 동물" class="w-full object-cover rounded"/>
-      <button class="mt-4 px-4 py-2 bg-blue-400 text-white font-bold rounded hover:bg-blue-500 transition">
-        다른 고양이 사진 보기
-      </button>
-      <button class="mt-4 px-4 py-2 bg-blue-400 text-white font-bold rounded hover:bg-blue-500 transition">
-        다른 강아지 사진 보기
-      </button>
+      
+      <!-- 동물 이미지 -->
+      <img id="animalImage" src="./img/cat.png" class="w-full object-cover rounded" alt="참고 동물"/>
+
+      <!-- 로딩 스피너 -->
+      <div id="loader" class="hidden flex justify-center items-center mt-4">
+        <div class="w-8 h-8 border-4 border-blue-300 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+
+      <div class="mt-4 flex gap-2">
+        <button onclick="fetchCatImage()" class="px-4 py-2 bg-pink-300 text-white rounded">고양이 보기</button>
+        <button onclick="fetchDogImage()" class="px-4 py-2 bg-blue-300 text-white rounded">강아지 보기</button>
+      </div>
+
+
     </section>
   </main>
 
   <script src="./src/canvas.js"> </script>
   <script src="./src/audio.js"> </script>
+  <script src="./src/photo.js"></script>
 </body>
 </html>
