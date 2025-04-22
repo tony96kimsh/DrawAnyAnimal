@@ -161,9 +161,7 @@ async function fetchDogImage() {
 }
 ```
 
-**fetch API와 async/await 문법, 고양이·강아지 OpenAPI 요청 방식 정리**
-
-fetch API vs jQuery AJAX (코드 중심 비교)
+fetch API vs jQuery AJAX 문법 비교 및 설명
 
 - fetch API (Promise 기반)
 ```javascript
@@ -247,7 +245,8 @@ async function loadData() {
 
 보완 사항
 - 음악 재생 시, 연속 재생 및 반복 재생
-- 캔버스 드로우 중 영역 벗어났다가 돌아올 시 브러쉬 유지하기
+- 캔버스 드로우 중 영역 벗어났다가 돌아올 시 브러쉬 유지 동작
+- 사진 요청 실패 시, 기본 이미지와 안내문구 노출
 
 ### 이슈
  - (테스트 중...)
