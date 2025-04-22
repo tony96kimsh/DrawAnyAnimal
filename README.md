@@ -46,7 +46,7 @@
 
 ### 코드 구조
 
-#### audio
+#### audio.js
 
 사용된 내장 함수와 이벤트
 
@@ -96,7 +96,7 @@ function shuffle(array) {
 ```
 
 
-#### canvas
+#### canvas.js
 
 사용된 내장 함수와 이벤트
 
@@ -142,7 +142,7 @@ function shuffle(array) {
   입력값에 따라 브러시 두께와 투명도 설정.
 
 
-#### photo
+#### photo.js
 
 API 요청 코드
 
@@ -161,9 +161,9 @@ async function fetchDogImage() {
 }
 ```
 
-fetch API와 async/await 문법, 고양이·강아지 OpenAPI 요청 방식 정리
+**fetch API와 async/await 문법, 고양이·강아지 OpenAPI 요청 방식 정리**
 
-■ fetch API vs jQuery AJAX (코드 중심 비교)
+fetch API vs jQuery AJAX (코드 중심 비교)
 
 - fetch API (Promise 기반)
 ```javascript
