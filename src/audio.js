@@ -8,17 +8,37 @@ const musicList = [
   'bg/Springtime Family Band - The Green Orbs.mp3'
 ];
 
-const randomIndex = Math.floor(Math.random() * musicList.length);
-const selectedMusic = musicList[randomIndex];
+// 🔀 Fisher-Yates 셔플 알고리즘
+function shuffle(array) {
+  let currentIndex = array.length, randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // Swap
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]
+    ];
+  }
+
+  return array;
+}
+
+const shuffledList = shuffle([...musicList]); // 원본 배열 손상 없이 복사해서 셔플
+let currentIndex = 0;
 
 const audioElement = document.createElement('audio');
-audioElement.src = selectedMusic;
 audioElement.controls = true;
-audioElement.loop = true;
-
-// autoplay는 브라우저 정책에 따라 실패할 수 있음
 audioElement.autoplay = true;
-// audioElement.muted = true; // 자동재생만 원한다면 이렇게도 가능
+audioElement.loop = false;
+audioElement.src = shuffledList[currentIndex];
+
+audioElement.addEventListener('ended', () => {
+  currentIndex = (currentIndex + 1) % shuffledList.length;
+  audioElement.src = shuffledList[currentIndex];
+  audioElement.play();
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('musicPlayer');
