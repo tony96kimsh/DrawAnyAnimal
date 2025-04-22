@@ -5,7 +5,7 @@
 ![alt text](image-2.png) | ![alt text](image.png)
 --|--|
 
-[🔗 사이트 바로가기 (Render)](https://tony96kimsh.github.io/DrawAnyAnimal)
+[🔗 사이트 바로가기 ](https://tony96kimsh.github.io/DrawAnyAnimal)
 
 📘 [작업 로그(노션)](https://stump-smartphone-024.notion.site/HTML-5-1d0f398452c380a4b80dfd5fe4baa91a?pvs=4)
 
