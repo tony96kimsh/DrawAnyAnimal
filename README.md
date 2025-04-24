@@ -140,13 +140,13 @@ $.ajax({
 - 이미지 요청 실패 대비
 
 ### 🐞 이슈
-- (테스트 중)
+- [캔버스] 마우스 이동 없이 클릭 시, 미동작 현상
 
 ---
 
 ## 참고자료
 
 - 사진: [Pinterest - 춤추는 강아지](https://kr.pinterest.com/pin/20195898325337996/)
-- 폰트: [눈누 - 어비 찌빠빠체](https://noonnu.cc/font_page/160)
+- 폰트: 눈누 - [어비 찌빠빠체](https://noonnu.cc/font_page/160), [Cafe24 Meongi White](https://noonnu.cc/font_page/1403), [온글잎 콘콘체](https://noonnu.cc/font_page/1546)
 - 아이콘: [Freepik - 파비콘](https://www.freepik.com/icon/sketchbook_6994399)
 - BGM: [유튜브 오디오 라이브러리](https://studio.youtube.com/channel/UCo3j6bBQz09Hy7eNkARd3yg/music)
